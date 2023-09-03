@@ -1,0 +1,29 @@
+<%- include('partials/header'); -%>
+
+<main>
+    <div class="whead">Work Tasks</div>
+    <div class="boxl">
+        <div class="limit">
+            <p>--Add your TO DOs below--</p>            
+        </div>
+        <div class="limit">
+            <h6>Kindly limit to 50 words please</h6>
+        </div>
+        <% listl.forEach(function(iteml){ %>
+            <form action="/deletework" method="post">
+                <div class="iteml">
+                    <input name="checkboxw" class="checkbox" type="checkbox" value="<%= iteml._id%>" onchange="this.form.submit()">
+                    <p class="task">
+                        <%= iteml.namel %>
+                    </p>
+                </div>
+            </form>
+        <% }); %> 
+        <form action="/work" method="post" class="iteml">
+            <input class="textareal" type="text" name="newIteml" placeholder="New Item" autocomplete="off" autofocus="autofocus">
+            <button class="btnl" type="submit" name="list">+</button>
+        </form>
+    </div>
+</main>
+
+<%- include('partials/footer'); -%>
